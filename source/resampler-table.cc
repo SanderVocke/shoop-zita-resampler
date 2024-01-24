@@ -24,6 +24,9 @@
 #include <math.h>
 #include <zita-resampler/resampler-table.h>
 
+#ifndef M_PI
+#define M_PI 3.141592653589793238462643383279502884L
+#endif
 
 #undef ENABLE_VEC4
 #if defined(ENABLE_SSE2)

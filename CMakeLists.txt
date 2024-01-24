@@ -3,8 +3,8 @@ project(zita-resampler VERSION 1.8.0)
 
 add_definitions(-DVERSION="${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
 
-set(CMAKE_CPPFLAGS_FLAGS "${CMAKE_CPPFLAGS_FLAGS} -I. -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS")
-set(CMAKE_CXXFLAGS_FLAGS "${CMAKE_CXXFLAGS_FLAGS} -Wall -fPIC -O2 -ffast-math -march=native")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -I. -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2 -ffast-math -march=native")
 
 # Source control
 set(SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/source/resampler.cc
@@ -17,10 +17,8 @@ set(HEADER_LIST ${CMAKE_CURRENT_SOURCE_DIR}/source/zita-resampler/resampler.h
         ${CMAKE_CURRENT_SOURCE_DIR}/source/zita-resampler/cresampler.h)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/source)
 
-
 # make
 add_library(zita-resampler ${SOURCES} ${HEADER_LIST})
-
 
 # CMake package config
 include(GNUInstallDirs)
