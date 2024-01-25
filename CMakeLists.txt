@@ -5,6 +5,7 @@ add_definitions(-DVERSION="${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${P
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -I. -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2 -ffast-math -march=native")
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # Source control
 set(SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/source/resampler.cc
@@ -18,7 +19,16 @@ set(HEADER_LIST ${CMAKE_CURRENT_SOURCE_DIR}/source/zita-resampler/resampler.h
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/source)
 
 # make
-add_library(zita-resampler ${SOURCES} ${HEADER_LIST})
+add_library(zita-resampler STATIC ${SOURCES} ${HEADER_LIST})
+
+if(WIN32)
+  find_library(PTHREAD_WIN32_LIB
+               pthreadVC2.lib
+               REQUIRED
+               PATH_SUFFIXES lib/x64)
+  target_link_libraries(zita-resampler PRIVATE ${PTHREAD_WIN32_LIB})
+  target_compile_definitions(zita-resampler PRIVATE -DHAVE_STRUCT_TIMESPEC)
+endif()
 
 # CMake package config
 include(GNUInstallDirs)
