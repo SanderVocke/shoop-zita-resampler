@@ -23,9 +23,8 @@ add_library(zita-resampler STATIC ${SOURCES} ${HEADER_LIST})
 
 if(WIN32)
   find_library(PTHREAD_WIN32_LIB
-               pthreadVC2.lib
-               REQUIRED
-               PATH_SUFFIXES lib/x64)
+               pthreadVC3.lib
+               REQUIRED)
   target_link_libraries(zita-resampler PRIVATE ${PTHREAD_WIN32_LIB})
   target_compile_definitions(zita-resampler PRIVATE -DHAVE_STRUCT_TIMESPEC)
 endif()
