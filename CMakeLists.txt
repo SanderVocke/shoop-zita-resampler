@@ -64,6 +64,10 @@ install(
         INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
 )
 install(
+        FILES ${HEADER_LIST}
+        DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}"
+)
+install(
         FILES "${project_config}" "${version_config}"
         DESTINATION "${config_install_dir}"
 )
