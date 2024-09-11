@@ -19,6 +19,7 @@ set(HEADER_LIST ${CMAKE_CURRENT_SOURCE_DIR}/source/zita-resampler/resampler.h
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/source)
 
 # make
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 add_library(zita-resampler SHARED ${SOURCES} ${HEADER_LIST})
 
 if(WIN32)
