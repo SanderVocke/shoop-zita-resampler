@@ -23,9 +23,10 @@
 
 
 #include "zita-resampler/resampler-table.h"
+#include "export.h"
 
 
-class Resampler
+class ZITA_EXPORT Resampler
 {
 public:
 

@@ -23,9 +23,9 @@
 
 
 #include "zita-resampler/resampler-table.h"
+#include "export.h"
 
-
-class VResampler
+class ZITA_EXPORT VResampler
 {
 public:
 

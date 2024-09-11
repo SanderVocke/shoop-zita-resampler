@@ -21,8 +21,10 @@
 #ifndef __CRESAMPLER_H
 #define __CRESAMPLER_H
 
+#include "export.h"
 
-class CResampler
+
+class ZITA_EXPORT CResampler
 {
 public:
 

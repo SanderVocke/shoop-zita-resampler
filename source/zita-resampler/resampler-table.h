@@ -23,6 +23,7 @@
 
 
 #include <pthread.h>
+#include "export.h"
 
 
 #define ZITA_RESAMPLER_MAJOR_VERSION 1
@@ -33,7 +34,7 @@ extern int zita_resampler_major_version (void);
 extern int zita_resampler_minor_version (void);
 
 
-class Resampler_mutex
+class ZITA_EXPORT Resampler_mutex
 {
 private:
 
@@ -48,7 +49,7 @@ private:
 };
 
 
-class Resampler_table
+class ZITA_EXPORT Resampler_table
 {
 public:
 

@@ -15,11 +15,11 @@ set(SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/source/resampler.cc
 set(HEADER_LIST ${CMAKE_CURRENT_SOURCE_DIR}/source/zita-resampler/resampler.h
         ${CMAKE_CURRENT_SOURCE_DIR}/source/zita-resampler/resampler-table.h
         ${CMAKE_CURRENT_SOURCE_DIR}/source/zita-resampler/vresampler.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/source/zita-resampler/cresampler.h)
+        ${CMAKE_CURRENT_SOURCE_DIR}/source/zita-resampler/cresampler.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/source/zita-resampler/export.h)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/source)
 
 # make
-set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 add_library(zita-resampler SHARED ${SOURCES} ${HEADER_LIST})
 
 if(WIN32)
@@ -30,7 +30,7 @@ if(WIN32)
             pthread.h
             REQUIRED)
   get_filename_component(PTHREAD_INCLUDE_DIR ${PTHREAD_HEADER} DIRECTORY)
-  target_link_libraries(zita-resampler PRIVATE ${PTHREAD_WIN32_LIB})
+  target_link_libraries(zita-resampler PUBLIC ${PTHREAD_WIN32_LIB})
   include_directories(${PTHREAD_INCLUDE_DIR})
   target_compile_definitions(zita-resampler PRIVATE -DHAVE_STRUCT_TIMESPEC)
 endif()
