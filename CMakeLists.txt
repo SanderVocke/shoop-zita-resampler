@@ -19,11 +19,11 @@ set(HEADER_LIST ${CMAKE_CURRENT_SOURCE_DIR}/source/zita-resampler/resampler.h
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/source)
 
 # make
-add_library(zita-resampler STATIC ${SOURCES} ${HEADER_LIST})
+add_library(zita-resampler SHARED ${SOURCES} ${HEADER_LIST})
 
 if(WIN32)
   find_library(PTHREAD_WIN32_LIB
-               pthreadVC3.lib
+               pthreadVC3
                REQUIRED)
   find_file(PTHREAD_HEADER
             pthread.h
