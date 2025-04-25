@@ -74,12 +74,6 @@ install(
 )
 
 install(
-    FILE YourLibraryTargets.cmake
-    DESTINATION "${CMAKE_INSTALL_DATADIR}/YourLibrary/cmake"
-
-)
-
-install(
         EXPORT "${TARGETS_EXPORT_NAME}"
         NAMESPACE "${namespace}"
         DESTINATION "${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME}/cmake"
