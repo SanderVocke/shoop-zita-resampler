@@ -81,7 +81,6 @@ install(
 
 install(
         EXPORT "${TARGETS_EXPORT_NAME}"
-        FILE "${TARGETS_EXPORT_NAME}'.cmake"
         NAMESPACE "${namespace}"
         DESTINATION "${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME}/cmake"
 )
