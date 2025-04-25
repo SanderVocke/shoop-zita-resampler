@@ -1,3 +1,7 @@
+# NOTE
+
+This is a modified version of zita-resampler for building for ShoopDaLoop. Original README.md follows.
+
 # zita-resampler
 
 Zita-resampler is a C++ library for sample rate conversion of
