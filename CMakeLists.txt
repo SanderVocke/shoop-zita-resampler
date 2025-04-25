@@ -72,8 +72,16 @@ install(
         FILES "${project_config}" "${version_config}"
         DESTINATION "${config_install_dir}"
 )
+
+install(
+    FILE YourLibraryTargets.cmake
+    DESTINATION "${CMAKE_INSTALL_DATADIR}/YourLibrary/cmake"
+
+)
+
 install(
         EXPORT "${TARGETS_EXPORT_NAME}"
+        FILE "${TARGETS_EXPORT_NAME}'.cmake"
         NAMESPACE "${namespace}"
-        DESTINATION "${config_install_dir}"
+        DESTINATION "${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME}/cmake"
 )
