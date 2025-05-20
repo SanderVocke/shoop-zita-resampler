@@ -23,15 +23,8 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/source)
 add_library(zita-resampler SHARED ${SOURCES} ${HEADER_LIST})
 
 if(WIN32)
-  find_library(PTHREAD_WIN32_LIB
-               pthreadVC3
-               REQUIRED)
-  find_file(PTHREAD_HEADER
-            pthread.h
-            REQUIRED)
-  get_filename_component(PTHREAD_INCLUDE_DIR ${PTHREAD_HEADER} DIRECTORY)
-  target_link_libraries(zita-resampler PUBLIC ${PTHREAD_WIN32_LIB})
-  include_directories(${PTHREAD_INCLUDE_DIR})
+  find_package(PThreads4W REQUIRED)
+  target_link_libraries(zita-resampler PUBLIC PThreads4W::PThreads4W)
   target_compile_definitions(zita-resampler PRIVATE -DHAVE_STRUCT_TIMESPEC)
 endif()
 
