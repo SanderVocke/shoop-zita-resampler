@@ -24,7 +24,7 @@ add_library(zita-resampler SHARED ${SOURCES} ${HEADER_LIST})
 
 if(WIN32)
   find_package(PThreads4W REQUIRED)
-  target_link_libraries(zita-resampler PUBLIC PThreads4W::PThreads4W)
+  target_link_libraries(zita-resampler PRIVATE PThreads4W::PThreads4W)
   target_compile_definitions(zita-resampler PRIVATE -DHAVE_STRUCT_TIMESPEC)
 endif()
 
